@@ -37,7 +37,7 @@ module Rubyexp
         break if line == bl && col < bc
         res << pos
       end
-      return res.min_by{|p| p[2,2]}
+      return res.max_by{|bl, bc, el, ec| [bl, bc, -el, -ec]}
     end
 
     def ranges(source)
